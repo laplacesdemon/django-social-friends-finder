@@ -1,9 +1,12 @@
 from django.views.generic import TemplateView
-from social_friends_finder.models import SocialFriendList
 from django.http import HttpResponseRedirect
+from models import SocialFriendList
+from utils import setting
 
-SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND = False
-SF_REDIRECT_URL = "/"
+
+REDIRECT_IF_NO_ACCOUNT = setting('SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND', False)
+REDIRECT_URL = setting('SF_REDIRECT_URL', "/")
+
 
 class FriendListView(TemplateView):
     """
@@ -18,8 +21,8 @@ class FriendListView(TemplateView):
 
         # if the user did not connect any social accounts, no need to continue
         if self.social_auths.count() == 0:
-            if SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND:
-                return HttpResponseRedirect(SF_REDIRECT_URL)
+            if REDIRECT_IF_NO_ACCOUNT:
+                return HttpResponseRedirect(REDIRECT_URL)
             return super(FriendListView, self).get(request)
 
         # for each social network, get or create social_friend_list

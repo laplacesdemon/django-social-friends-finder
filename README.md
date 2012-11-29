@@ -16,8 +16,8 @@ Installation
 
 todo
 
-Usage
------
+Usage and Configuration
+-----------------------
 
 Add `social_friends_finder` to your APPS list in your settings file
 
@@ -32,6 +32,11 @@ Add urls to your url config
         ...
         url(r'^find-friends/', include('social_friends_finder.urls')),
     )
+
+Optionally you can use following settings:
+
+    `SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND`: True if no social account found. Default is True
+    `REDIRECT_URL`: The url to redirect if above setting is used. Default is "/"
 
 Go to `/find-friends/list/` on your browser.
 

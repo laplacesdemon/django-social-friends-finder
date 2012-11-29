@@ -1,3 +1,6 @@
+from django.conf import settings
+
+
 class SocialFriendsFinderBackendFactory():
 
     @classmethod
@@ -13,3 +16,7 @@ class SocialFriendsFinderBackendFactory():
             raise NotImplementedError("provider: %s is not implemented")
 
         return friends_provider
+
+def setting(name, default=None):
+    """returns the setting value or default if not exists"""
+    return getattr(settings, name, default)
