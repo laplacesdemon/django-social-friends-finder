@@ -14,7 +14,15 @@ Dependencies
 Installation
 ------------
 
-todo
+There are 3 ways to install this app
+
+@todo pypi
+
+or build from the source.
+
+    python setup.py install
+
+or add `social_friends_finder` to your path
 
 Usage and Configuration
 -----------------------
