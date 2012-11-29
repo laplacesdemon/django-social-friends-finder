@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Find Friends" %}{% endblock %}
+{% block content %}
+{% if not friends %}
+    {% trans "No friends found" %}
+{% else %}
+connected social accounts:
+<ul>
+    {% for provider in connected_providers %}
+        {{ provider }}
+    {% endfor %}
+friends:
+<ul>
+    {% for friend in friends %}
+    <li>{{ friend }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
