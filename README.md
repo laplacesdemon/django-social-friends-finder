@@ -43,8 +43,8 @@ Add urls to your url config
 
 Optionally you can use following settings:
 
-`SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND`: True if no social account found. Default is True
-`REDIRECT_URL`: The url to redirect if above setting is used. Default is "/"
+    SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND: True if no social account found. Default is True
+    REDIRECT_URL: The url to redirect if above setting is used. Default is "/"
 
 Go to `/find-friends/list/` on your browser.
 
