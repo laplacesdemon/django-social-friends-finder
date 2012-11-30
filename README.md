@@ -1,7 +1,7 @@
 django-social-friends-finder
 ============================
 
-An extension for django-social-auth that finds matched friends on connected social network and your websit
+An extension app for django-social-auth that fetches your friends from different social-networks.
 It displays matched friends so you can suggest your users to add them as friend or follow them. 
 
 Dependencies
