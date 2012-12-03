@@ -11,7 +11,7 @@ setup(
     include_package_data=True,
     url='https://github.com/laplacesdemon/django-social-friends-finder.git',
     license='BSD licence, see LICENCE.txt',
-    description='An extension for django-social-auth that finds matched friends on connected social network and your website.',
+    description='An extension app for django-social-auth that fetches your friends from different social-networks.',
     long_description=open('README.md').read(),
     zip_safe=False,
 )

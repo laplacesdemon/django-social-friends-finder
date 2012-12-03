@@ -1,7 +1,7 @@
 django-social-friends-finder
 ============================
 
-An extension for django-social-auth that finds matched friends on connected social network and your websit
+An extension app for django-social-auth that fetches your friends from different social-networks.
 It displays matched friends so you can suggest your users to add them as friend or follow them. 
 
 Dependencies
@@ -43,8 +43,8 @@ Add urls to your url config
 
 Optionally you can use following settings:
 
-`SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND`: True if no social account found. Default is True
-`REDIRECT_URL`: The url to redirect if above setting is used. Default is "/"
+    SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND: True if no social account found. Default is True
+    REDIRECT_URL: The url to redirect if above setting is used. Default is "/"
 
 Go to `/find-friends/list/` on your browser.
 
