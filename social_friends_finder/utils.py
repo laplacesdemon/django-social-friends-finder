@@ -13,7 +13,9 @@ class SocialFriendsFinderBackendFactory():
             from social_friends_finder.backends.facebook_backend import FacebookFriendsProvider
             friends_provider = FacebookFriendsProvider()
         else:
-            raise NotImplementedError("provider: %s is not implemented")
+            #raise NotImplementedError("provider: %s is not implemented")
+            from social_friends_finder.backends.google_backend import GoogleFriendsProvider
+            friends_provider = GoogleFriendsProvider()
 
         return friends_provider
 
