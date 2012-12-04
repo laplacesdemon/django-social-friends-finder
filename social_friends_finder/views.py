@@ -18,6 +18,7 @@ class FriendListView(TemplateView):
         """prepare the social friend model"""
         # Get the social auth connections
         self.social_auths = request.user.social_auth.all()
+        self.social_friend_lists = []
 
         # if the user did not connect any social accounts, no need to continue
         if self.social_auths.count() == 0:
