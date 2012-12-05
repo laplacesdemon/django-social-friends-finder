@@ -1,0 +1,4 @@
+django>=1.2.5
+django-social-auth>=0.7.10
+python-twitter>=0.8.2
+git+https://github.com/pythonforfacebook/facebook-sdk.git

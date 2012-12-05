@@ -5,7 +5,9 @@ class SocialFriendsFinderBackendFactory():
 
     @classmethod
     def get_backend(self, backend_name):
-        """returns the given backend instance"""
+        """
+        returns the given backend instance
+        """
         if backend_name == 'twitter':
             from social_friends_finder.backends.twitter_backend import TwitterFriendsProvider
             friends_provider = TwitterFriendsProvider()
@@ -14,8 +16,6 @@ class SocialFriendsFinderBackendFactory():
             friends_provider = FacebookFriendsProvider()
         else:
             raise NotImplementedError("provider: %s is not implemented")
-            #from social_friends_finder.backends.google_backend import GoogleFriendsProvider
-            #friends_provider = GoogleFriendsProvider()
 
         return friends_provider
 
