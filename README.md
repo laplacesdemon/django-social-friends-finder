@@ -16,7 +16,7 @@ Installation
 
 There are 3 ways to install this app
 
-@todo pypi
+    pip install django-social-friends-finder
 
 or build from the source.
 
