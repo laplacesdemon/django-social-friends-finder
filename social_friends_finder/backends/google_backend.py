@@ -1,5 +1,7 @@
 from social_friends_finder.backends import BaseFriendsProvider
 
+
+# see: http://djangosnippets.org/snippets/706/
 class GoogleFriendsProvider(BaseFriendsProvider):
 
     def fetch_friends(self, user):

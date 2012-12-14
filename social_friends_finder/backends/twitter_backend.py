@@ -3,6 +3,7 @@ from social_auth.backends.twitter import TwitterBackend
 from django.conf import settings
 import twitter
 
+
 class TwitterFriendsProvider(BaseFriendsProvider):
 
     def fetch_friends(self, user):
@@ -27,10 +28,10 @@ class TwitterFriendsProvider(BaseFriendsProvider):
 
         # now fetch the twitter friends using `python-twitter`
         api = twitter.Api(
-                consumer_key=consumer_key,
-                consumer_secret=consumer_secret,
-                access_token_key=oauth_token,
-                access_token_secret=oauth_token_secret
+            consumer_key=consumer_key,
+            consumer_secret=consumer_secret,
+            access_token_key=oauth_token,
+            access_token_secret=oauth_token_secret
         )
         return api.GetFriends()
 

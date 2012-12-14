@@ -3,6 +3,7 @@ from social_auth.models import UserSocialAuth
 from django.contrib.auth.models import User
 from social_friends_finder.utils import SocialFriendsFinderBackendFactory
 
+
 class SocialFriendsManager(models.Manager):
 
     def assert_user_is_social_auth_user(self, user):
@@ -29,7 +30,7 @@ class SocialFriendsManager(models.Manager):
 
         return friend_ids
 
-    def existing_social_friends(self, user_social_auth = None, friend_ids = None):
+    def existing_social_friends(self, user_social_auth=None, friend_ids=None):
         """
         fetches and matches social friends
         if friend_ids is None, then fetches them from social network
@@ -101,4 +102,3 @@ class SocialFriendList(models.Model):
 
     def existing_social_friends(self):
         return SocialFriendList.objects.existing_social_friends(self.user_social_auth, self.friend_ids)
-

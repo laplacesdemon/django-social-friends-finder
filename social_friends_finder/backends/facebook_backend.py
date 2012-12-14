@@ -2,6 +2,7 @@ from social_friends_finder.backends import BaseFriendsProvider
 from social_auth.backends.facebook import FacebookBackend
 import facebook
 
+
 class FacebookFriendsProvider(BaseFriendsProvider):
 
     def fetch_friends(self, user):

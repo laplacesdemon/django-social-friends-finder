@@ -10,7 +10,6 @@ from social_auth.models import UserSocialAuth
 from django.contrib.auth.models import User
 from social_friends_finder.models import SocialFriendList
 from django.test.client import Client
-#from social_auth.models import UserSocialAuth
 
 
 class SocialFriendsManagerTest(TestCase):
