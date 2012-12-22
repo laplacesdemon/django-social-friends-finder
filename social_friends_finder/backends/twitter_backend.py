@@ -1,13 +1,14 @@
 from social_friends_finder.backends import BaseFriendsProvider
-from utils import setting
+from social_friends_finder.utils import setting
 if setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
     from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
-    USING_ALLAUTH = True    
+    USING_ALLAUTH = True
 else:
     from social_auth.backends.twitter import TwitterBackend
     USING_ALLAUTH = False
 from django.conf import settings
 import twitter
+
 
 class TwitterFriendsProvider(BaseFriendsProvider):
 
@@ -26,15 +27,15 @@ class TwitterFriendsProvider(BaseFriendsProvider):
             social_app = SocialApp.objects.get_current('twitter')
             consumer_key = social_app.key
             consumer_secret = social_app.secret
-            
+
             oauth_token = SocialToken.objects.get(account=user, app=social_app).token
-            oauth_token = SocialToken.objects.get(account=user, app=social_app).token_secret
+            oauth_token_secret = SocialToken.objects.get(account=user, app=social_app).token_secret
         else:
             t = TwitterBackend()
             tokens = t.tokens(user)
             oauth_token_secret = tokens['oauth_token_secret']
             oauth_token = tokens['oauth_token']
-        
+
             # Consumer key and secret from settings
             consumer_key = settings.TWITTER_CONSUMER_KEY
             consumer_secret = settings.TWITTER_CONSUMER_SECRET

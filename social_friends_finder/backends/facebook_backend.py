@@ -1,11 +1,11 @@
 from social_friends_finder.backends import BaseFriendsProvider
-from utils import setting
+from social_friends_finder.utils import setting
 if setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
     from social_auth.backends.facebook import FacebookBackend
     USING_ALLAUTH = False
 else:
     from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
-    USING_ALLAUTH = True    
+    USING_ALLAUTH = True
 import facebook
 
 
@@ -15,17 +15,17 @@ class FacebookFriendsProvider(BaseFriendsProvider):
         """
         fethces friends from facebook using the oauth_token
         fethched by django-social-auth.
-        
+
         Note - user isn't a user - it's a UserSocialAuth if using social auth, or a SocialAccount if using allauth
 
         Returns:
             collection of friend objects fetched from facebook
         """
-        
+
         if USING_ALLAUTH:
             social_app = SocialApp.objects.get_current('facebook')
             oauth_token = SocialToken.objects.get(account=user, app=social_app).token
-        else:    
+        else:
             social_auth_backend = FacebookBackend()
 
             # Get the access_token
