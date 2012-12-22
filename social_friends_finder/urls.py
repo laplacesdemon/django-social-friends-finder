@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import *
 from social_friends_finder.views import FriendListView
 from django.contrib.auth.decorators import login_required
 
