@@ -1,5 +1,12 @@
 from django.db import models
-from social_auth.models import UserSocialAuth
+from utils import setting
+
+if setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
+    USING_ALLAUTH = True
+    from allauth.socialaccount.models import SocialAccount as UserSocialAuth    
+else:
+    USING_ALLAUTH = False
+    from social_auth.models import UserSocialAuth
 from django.contrib.auth.models import User
 from social_friends_finder.utils import SocialFriendsFinderBackendFactory
 
@@ -49,7 +56,10 @@ class SocialFriendsManager(models.Manager):
             friend_ids = eval(friend_ids)
 
         # Match them with the ones on the website
-        return User.objects.filter(social_auth__uid__in=friend_ids).all()
+        if USING_ALLAUTH:
+            return User.objects.filter(socialaccount__uid__in=friend_ids).all()            
+        else:
+            return User.objects.filter(social_auth__uid__in=friend_ids).all()
 
     def get_or_create_with_social_auth(self, social_auth):
         """
@@ -93,7 +103,7 @@ class SocialFriendsManager(models.Manager):
 class SocialFriendList(models.Model):
 
     user_social_auth = models.OneToOneField(UserSocialAuth, related_name="social_auth")
-    friend_ids = models.CommaSeparatedIntegerField(max_length=99999999, blank=True, help_text="friends ids seperated by commas")
+    friend_ids = models.CommaSeparatedIntegerField(max_length=10000000, blank=True, help_text="friends ids seperated by commas")
 
     objects = SocialFriendsManager()
 
