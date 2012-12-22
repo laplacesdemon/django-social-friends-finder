@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}{% load socialaccount %}
+{% block content %}
+<div class="social-connect-buttons">
+    <nav>
+    <a href="{% provider_login_url "twitter" %}">Connect with Twitter</a>
+    </nav>
+</div>
+<div>
+    <a href="{% url friend_list %}">Find friends</a>
+</div>
+{% endblock %}
