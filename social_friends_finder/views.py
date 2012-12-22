@@ -3,6 +3,11 @@ from django.http import HttpResponseRedirect
 from models import SocialFriendList
 from utils import setting
 
+if setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
+    USING_ALLAUTH = True
+else:
+    USING_ALLAUTH = False
+
 
 REDIRECT_IF_NO_ACCOUNT = setting('SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND', False)
 REDIRECT_URL = setting('SF_REDIRECT_URL', "/")
@@ -17,7 +22,11 @@ class FriendListView(TemplateView):
     def get(self, request, provider=None):
         """prepare the social friend model"""
         # Get the social auth connections
-        self.social_auths = request.user.social_auth.all()
+        if USING_ALLAUTH:
+            self.social_auths = request.user.socialaccount_set.all()
+        else:
+            self.social_auths = request.user.social_auth.all()
+                
         self.social_friend_lists = []
 
         # if the user did not connect any social accounts, no need to continue
