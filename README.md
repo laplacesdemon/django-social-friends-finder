@@ -1,13 +1,22 @@
 django-social-friends-finder
 ============================
 
-An extension app for django-social-auth that fetches your friends from different social-networks.
+An extension app for `django-social-auth` or `django-allauth` that fetches your friends from different social-networks.
 It displays matched friends so you can suggest your users to add them as friend or follow them. 
 
 Dependencies
 ------------
 
+To use it with `django-social-auth`
+
   * django-social-auth>=0.7.10 and all its dependencies https://github.com/omab/django-social-auth.git
+
+To use it with `django-allauth`
+
+  * django-allauth>=0.8.3 and all its dependencies https://github.com/pennersr/django-allauth
+
+Back-end dependencies
+
   * python-twitter>=0.8.2 for twitter backend http://code.google.com/p/python-twitter/
   * facebook-sdk for facebook backend https://github.com/pythonforfacebook/facebook-sdk.git
 
@@ -51,7 +60,19 @@ Go to `/find-friends/list/` on your browser.
 Contributions
 -------------
 
-Currently there are facebook, twitter and google-oauth2 backends are available. Please help to implement new backends.
+Currently there are facebook and twitter backends are available. Please help to implement new backends.
 
 Implementing backend classes are easy. Just create a class inherits from `BaseFriendsProvider` and implement two of its methods. 
 See backends module for example implementations
+
+The software design for back-ends needs to be tweaked a little. Encapsulating the allauth and social-auth behaviors in different subclasses would help.
+Also a common interface for backends to load them silently is crucial. Now if there is a missing backend, we raise an error. Factory class that loads them is also very ugly.
+
+I needed to implement this app for a real-world project with an impossible deadline, and now no time to refactor it. So if you can spend some time on the above issues, that'd be awesome.
+
+Thanks `lizrice` for the `django-allauth` integration.
+
+Change Log
+----------
+
+See `CHANGES.txt` file for history

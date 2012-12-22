@@ -1,0 +1,13 @@
+0.2 - 2012-12-23
+----------------
+
+Support for `django-allauth` as another social-authentication app
+Example projects are added
+
+0.1 - 2012-12-05
+----------------
+
+Initial Development
+integration with `django-social-app`
+twitter backend
+facebook backend
