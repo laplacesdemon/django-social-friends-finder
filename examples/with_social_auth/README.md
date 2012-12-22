@@ -2,6 +2,7 @@ Example Project
 ===============
 
 This is a sample project to test out `social-friends-finder`
+This example app is using `django-social-auth` for its social authentication
 
 Installation
 ------------
