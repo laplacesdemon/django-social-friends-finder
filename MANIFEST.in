@@ -1,2 +1,2 @@
-include setup.py README.md LICENSE.txt CHANGES.txt
-recursive-include social_friends_finder *.py *.html
+include setup.py README.md LICENSE.txt CHANGES.txt requirements.txt
+recursive-include social_friends_finder *.py *.html *.json
