@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="social-connect-buttons">
+    <nav>
+        <a href="{% url socialauth_begin "twitter" %}">connect with twitter</a> |
+        <a href="{% url socialauth_begin "facebook" %}">connect with facebook</a>
+    </nav>
+</div>
+<div class="friends">
+    {% if not connected_providers %}
+        {% trans "Connect to one of the social networks above" %}
+    {% elif not friends %}
+        {% trans "No friends found" %}
+    {% else %}
+        <ul>
+            {% for friend in friends %}
+            <li>
+                {{ friend }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

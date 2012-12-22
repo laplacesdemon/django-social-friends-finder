@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="social-connect-buttons">
+    <nav>
+        <a href="{% url socialauth_begin "twitter" %}">connect with twitter</a> |
+        <a href="{% url socialauth_begin "facebook" %}">connect with facebook</a>
+    </nav>
+</div>
+<div>
+    {% if user.is_authenticated %}
+    <a href="{% url friend_list %}">Find friends</a>
+    {% else %}
+    In order to test `find friends`, please log in using one of the buttons first
+    <br />
+    Do not forget to create twitter/facebook apps and set them up in `settings.py`.
+    <br />
+    Registration is not covered in this sample app (see `django-registration` app to implement an easy registration).
+    {% endif %}
+</div>
+{% endblock %}
