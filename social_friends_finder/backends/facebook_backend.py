@@ -1,6 +1,6 @@
 from social_friends_finder.backends import BaseFriendsProvider
 from social_friends_finder.utils import setting
-if setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
+if not setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
     from social_auth.backends.facebook import FacebookBackend
     USING_ALLAUTH = False
 else:
