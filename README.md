@@ -20,6 +20,13 @@ Back-end dependencies
   * python-twitter>=0.8.2 for twitter backend http://code.google.com/p/python-twitter/
   * facebook-sdk for facebook backend https://github.com/pythonforfacebook/facebook-sdk.git
 
+Available BackEnds
+------------------
+
+Facebook
+Twitter
+Vkontakte
+
 Installation
 ------------
 
@@ -70,7 +77,11 @@ Also a common interface for backends to load them silently is crucial. Now if th
 
 I needed to implement this app for a real-world project with an impossible deadline, and now no time to refactor it. So if you can spend some time on the above issues, that'd be awesome.
 
-Thanks `lizrice` for the `django-allauth` integration.
+Contributors
+------------
+
+`lizrice`
+`vden`
 
 Change Log
 ----------
