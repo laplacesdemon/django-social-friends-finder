@@ -23,9 +23,9 @@ Back-end dependencies
 Available BackEnds
 ------------------
 
-Facebook
-Twitter
-Vkontakte
+  * Facebook
+  * Twitter
+  * Vkontakte
 
 Installation
 ------------
@@ -80,8 +80,8 @@ I needed to implement this app for a real-world project with an impossible deadl
 Contributors
 ------------
 
-`lizrice`
-`vden`
+  * `lizrice`
+  * `vden`
 
 Change Log
 ----------
