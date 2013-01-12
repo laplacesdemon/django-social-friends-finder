@@ -94,7 +94,10 @@ class SocialFriendsManager(models.Manager):
         """
         social_friend_coll = []
         for sa in social_auths:
-            social_friend = self.get_or_create_with_social_auth(sa)
+            try:
+                social_friend = self.get_or_create_with_social_auth(sa)
+            except NotImplementedError:
+                continue
             social_friend_coll.append(social_friend)
 
         return social_friend_coll
