@@ -57,8 +57,9 @@ Add urls to your url config
         url(r'^find-friends/', include('social_friends_finder.urls')),
     )
 
-Optionally you can use following settings:
+Have a look at following settings:
 
+    SOCIAL_FRIENDS_USING_ALLAUTH: True if you use `django-allauth`. Default is False
     SF_REDIRECT_IF_NO_SOCIAL_ACCOUNT_FOUND: True if no social account found. Default is True
     REDIRECT_URL: The url to redirect if above setting is used. Default is "/"
 
