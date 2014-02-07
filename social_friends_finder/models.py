@@ -1,5 +1,9 @@
 from django.db import models
-from utils import setting
+from django.contrib.auth import get_user_model
+
+from .utils import SocialFriendsFinderBackendFactory
+from .utils import setting
+from .fields import CommaSeparatedTextIntegerField
 
 if setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
     USING_ALLAUTH = True
@@ -7,8 +11,8 @@ if setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
 else:
     USING_ALLAUTH = False
     from social_auth.models import UserSocialAuth
-from django.contrib.auth.models import User
-from social_friends_finder.utils import SocialFriendsFinderBackendFactory
+
+User = get_user_model()
 
 
 class SocialFriendsManager(models.Manager):
@@ -105,8 +109,12 @@ class SocialFriendsManager(models.Manager):
 
 class SocialFriendList(models.Model):
 
-    user_social_auth = models.OneToOneField(UserSocialAuth, related_name="social_auth")
-    friend_ids = models.CommaSeparatedIntegerField(max_length=10000000, blank=True, help_text="friends ids seperated by commas")
+    user_social_auth = models.OneToOneField(UserSocialAuth,
+                                            related_name="social_auth")
+    friend_ids = CommaSeparatedTextIntegerField(max_length=10000000,
+                                                blank=True,
+                                                help_text="friends ids seperated by commas")
+
 
     objects = SocialFriendsManager()
 
