@@ -1,8 +1,12 @@
+build
+django_social_friends_finder.egg-info/
+dist
 *.log
 *.pot
 *.pyc
 local_settings.py
 .DS_Store
+.idea
 .ropeproject
 venv
 *.db
