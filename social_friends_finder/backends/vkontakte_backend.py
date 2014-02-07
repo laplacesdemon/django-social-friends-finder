@@ -1,7 +1,7 @@
 from social_friends_finder.backends import BaseFriendsProvider
 from social_friends_finder.utils import setting
 if not setting("SOCIAL_FRIENDS_USING_ALLAUTH", False):
-    from social_auth.backends.contrib.vkontakte import VKontakteOAuth2Backend
+    from social_auth.backends.contrib.vk import VKOAuth2Backend
     USING_ALLAUTH = False
 else:
     from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
@@ -27,7 +27,7 @@ class VKontakteFriendsProvider(BaseFriendsProvider):
             #social_app = SocialApp.objects.get_current('vkontakte')
             #oauth_token = SocialToken.objects.get(account=user, app=social_app).token
         else:
-            social_auth_backend = VKontakteOAuth2Backend()
+            social_auth_backend = VKOAuth2Backend()
 
             # Get the access_token
             tokens = social_auth_backend.tokens(user)

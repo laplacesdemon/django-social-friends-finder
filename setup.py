@@ -9,6 +9,12 @@ setup(
     author_email='suleyman@melikoglu.info',
     packages=find_packages(),
     include_package_data=True,
+    extras_require={
+        'social_auth': ['django-social-auth==0.7.28'],
+        'facebook': ['facebook-sdk==0.4.0'],
+        'twitter': ['python-twitter==1.2'],
+        'vkontakte': ['vkontakte==1.3.2']
+    },
     url='https://github.com/laplacesdemon/django-social-friends-finder.git',
     license='BSD licence, see LICENCE.txt',
     description='An extension app for django-social-auth or django-allauth that fetches your friends from different social-networks.',
