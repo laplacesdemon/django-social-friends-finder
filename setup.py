@@ -13,7 +13,9 @@ setup(
         'social_auth': ['django-social-auth==0.7.28'],
         'facebook': ['facebook-sdk==0.4.0'],
         'twitter': ['python-twitter==1.2'],
-        'vkontakte': ['vkontakte==1.3.2']
+        'vkontakte': ['vkontakte==1.3.2'],
+        'google': ['gdata==2.0.18',
+                   'feedparser==5.1.3']
     },
     url='https://github.com/laplacesdemon/django-social-friends-finder.git',
     license='BSD licence, see LICENCE.txt',
