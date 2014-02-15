@@ -83,6 +83,7 @@ Contributors
 
   * `lizrice`
   * `vden`
+  * `mike-grayhat`
 
 Change Log
 ----------
