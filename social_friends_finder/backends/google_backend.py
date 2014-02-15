@@ -15,8 +15,6 @@ if getattr(settings, "SOCIAL_FRIENDS_USING_ALLAUTH", False):
 else:
     USING_ALLAUTH = False
 
-gd_client = gdata.contacts.client.ContactsClient(source='<var>achiever-mng</var>')
-
 
 class GoogleFriendsProvider(BaseFriendsProvider):
 
