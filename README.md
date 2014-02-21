@@ -26,6 +26,7 @@ Available BackEnds
   * Facebook
   * Twitter
   * Vkontakte
+  * Google
 
 Installation
 ------------
