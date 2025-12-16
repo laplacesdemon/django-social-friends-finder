@@ -1,4 +1,4 @@
 django>=1.2.5
-django-allauth==0.8.3
+django-allauth==65.13.0
 python-twitter>=0.8.2
 git+https://github.com/laplacesdemon/django-social-friends-finder.git
